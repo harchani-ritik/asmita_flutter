@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1065423367835",
+    "firebase_url": "https://asmita-20.firebaseio.com",
+    "project_id": "asmita-20",
+    "storage_bucket": "asmita-20.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1065423367835:android:df715e84f2a7598664203e",
+        "android_client_info": {
+          "package_name": "com.harchani.asmita_flutter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1065423367835-a1biqfn7m7ik1vrq286m3ujclicnmg07.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB1yVVjAxGWRDDnaCrAe9Wr9RQQnJmp3l4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1065423367835-a1biqfn7m7ik1vrq286m3ujclicnmg07.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
