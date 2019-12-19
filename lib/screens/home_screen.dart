@@ -17,13 +17,15 @@ class _HomeScreenState extends State<HomeScreen> {
   List<Widget> _widgetOptions = <Widget>[
     EventsViewWidget(),
 
-    Image(
-      image: AssetImage('images/asmita_logo.jpg'),
+    Text(
+      'Realtime Event Updates will be fetched here',
+      style: kOptionStyle.copyWith(fontSize: 15),
     ),
     Text(
       'Sponsers List Coming Soon',
       style: kOptionStyle,
     ),
+
     TeamPage(),
   ];
 

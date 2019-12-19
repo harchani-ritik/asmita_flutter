@@ -1,3 +1,5 @@
+import 'package:asmita_flutter/components/team_member_tile.dart';
+import 'package:asmita_flutter/constants.dart';
 import 'package:flutter/material.dart';
 
 class TeamPage extends StatelessWidget {
@@ -20,11 +22,17 @@ class TeamPage extends StatelessWidget {
         ),),
         body: TabBarView(
           children: [
-            Icon(Icons.directions_car),
-            Icon(Icons.directions_bike),
+            ListView(
+              children: teamMembersList,
+            ),
+            ListView(
+              children: developersList,
+            )
           ],
         ),
       ),
     );
   }
 }
+
+
