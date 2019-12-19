@@ -1,3 +1,4 @@
+import 'package:asmita_flutter/screens/home_screen.dart';
 import 'package:asmita_flutter/screens/welcome_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -9,11 +10,13 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Asmita\'20',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.deepOrange,
+        fontFamily: 'Webster'
       ),
-      initialRoute: WelcomeScreen.id,
+      initialRoute: HomeScreen.id,
       routes: {
         WelcomeScreen.id: (context) => WelcomeScreen(),
+        HomeScreen.id: (context) => HomeScreen(),
       },
     );
   }

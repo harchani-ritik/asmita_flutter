@@ -1,3 +1,4 @@
+import 'package:asmita_flutter/screens/home_screen.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
@@ -19,34 +20,21 @@ class _WelcomeScreenState extends State<WelcomeScreen> with SingleTickerProvider
     super.initState();
 
     controller = AnimationController(
-      duration: Duration(milliseconds: 600),
+      duration: Duration(milliseconds: 1500),
       vsync: this,
     );
     controller.forward();
-
     controller.addListener((){
       setState(() {
       });
+//      print('Controller Value = ${controller.value}');
+//      print('Animation Value = ${animation.value}');
     });
+    animation = CurvedAnimation(parent: controller,curve: Curves.decelerate,);
 
-    animation = CurvedAnimation(parent: controller,curve: Curves.linearToEaseOut,);
-    animation.addStatusListener((status){
-      if(status==AnimationStatus.completed) {
-        controller.reverse(from: 1.0);
-      }
-      else if (status == AnimationStatus.dismissed) {
-        controller.forward();
-      }
+    Future.delayed(const Duration(milliseconds: 3000), () {
+      Navigator.pushNamed(context, HomeScreen.id);
     });
-  }
-
-  void getMessages() async
-  {
-    final messages = await _firestore.collection('new').getDocuments();
-    for(var message in messages.documents)
-      {
-        print(message.data);
-      }
   }
 
   @override
@@ -57,62 +45,33 @@ class _WelcomeScreenState extends State<WelcomeScreen> with SingleTickerProvider
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       backgroundColor: Colors.white,
-      body: Padding(
-        padding: EdgeInsets.symmetric(vertical: 40.0),
+      body: SafeArea(
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
-            CircleAvatar(
-              radius: 100.0,
-              child: Image(
-                image: AssetImage('images/asmita_logo.jpg'),
-              ),
-            ),
-            Container(
-              margin: EdgeInsets.fromLTRB(animation.value*100, 50, 0.0, 0.0),
-              child: Text(
-                "ASMITA' 20",
-                style: TextStyle(
-                  color: Colors.deepOrange,
-                  fontStyle: FontStyle.normal,
-                  fontSize: 60.0,
-                  fontWeight: FontWeight.w700,
+            Padding(
+              padding: EdgeInsets.fromLTRB(16.0,animation.value*176,16.0,0),
+              child: CircleAvatar(
+                radius: 80,
+                child: Image(
+                  image: AssetImage('images/asmita_logo.jpg'),
                 ),
               ),
             ),
-            Container(
-              margin: EdgeInsets.fromLTRB(animation.value*100,0.0, 0.0, 0.0),
-              color: Colors.orange,
-              height: 12.0,
-              width: 300.0,
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 8.0,vertical: 16.0),
+              child: Center(
+                child: Text(
+                  '\t\t\t\t\t Asmita \n14th-16th FEB',
+                  style: TextStyle(
+                    fontSize: 40,
+                  ),
+                ),
+              ),
             ),
-            FlatButton(
-              color: Colors.red,
-              child: Text('Push something to firestore',
-              style: TextStyle(
-                fontSize: 18.0,
-              ),),
-              onPressed: (){
-                print('you clicked on pushed button');
-                _firestore.collection('new').add({
-                  'text': 'YOUNGBLOOD',
-                  'sender' : 'HARCHANI',
-                });
-              },
-            ),
-            FlatButton(
-              color: Colors.blue,
-              child: Text('Pull something from firestore',
-                style: TextStyle(
-                  fontSize: 18.0,
-                ),),
-              onPressed: (){
-                print('you clicked on pull button');
-                getMessages();
-              },
-            ),
-
           ],
         ),
       ),
