@@ -1,3 +1,5 @@
+import 'package:asmita_flutter/components/sport_tile.dart';
+import 'package:asmita_flutter/constants.dart';
 import 'package:flutter/material.dart';
 
 class EventsViewWidget extends StatelessWidget {
@@ -25,43 +27,37 @@ class EventsViewWidget extends StatelessWidget {
             ),
           ];
         },
-        body: ListView(
-          children: <Widget>[
-            ListTile(
-              title: Text('Badminton'),
-            ),
-            ListTile(
-              title: Text('Badminton'),
-            ),
-            ListTile(
-              title: Text('Badminton'),
-            ),
-            ListTile(
-              title: Text('Badminton'),
-            ),
-            ListTile(
-              title: Text('Badminton'),
-            ),
-            ListTile(
-              title: Text('Badminton'),
-            ),
-            ListTile(
-              title: Text('Badminton'),
-            ),ListTile(
-              title: Text('Badminton'),
-            ),
-            ListTile(
-              title: Text('Badminton'),
-            ),
-            ListTile(
-              title: Text('Badminton'),
-            ),
-            ListTile(
-              title: Text('Badminton'),
-            ),
-          ],
+        body: GridView.count(
+          // Create a grid with 2 columns. If you change the scrollDirection to
+          // horizontal, this produces 2 rows.
+          crossAxisCount: 2,
+          scrollDirection: Axis.horizontal,
+          // Generate 100 widgets that display their index in the List.
+          children: _getTiles(sportsList),
         ),
-        ),
+      ),
       );
   }
+}
+
+// Function to be called on click
+void _onTileClicked(int index){
+  print("You tapped on item $index");
+}
+
+// Get grid tiles
+List<Widget> _getTiles(List<SportWidget> iconList) {
+  final List<Widget> tiles = <Widget>[];
+  for (int i = 0; i < iconList.length; i++) {
+    tiles.add(GridTile(
+        child: InkResponse(
+          enableFeedback: true,
+          child: SportWidget(
+            name: '${iconList[i].name}',
+            image: '${iconList[i].image}',
+          ),
+          onTap: () => _onTileClicked(i),
+        )));
+  }
+  return tiles;
 }

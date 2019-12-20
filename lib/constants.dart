@@ -1,5 +1,6 @@
 //any constant declared in the project will have to be refactored here
 import 'package:flutter/material.dart';
+import 'components/sport_tile.dart';
 import 'components/team_member_tile.dart';
 
 TextStyle kOptionStyle = TextStyle(fontSize: 20, fontWeight: FontWeight.bold);
@@ -28,4 +29,49 @@ List<TeamMemberTile> teamMembersList = [
     imageUrl: 'https://scontent.fknu1-1.fna.fbcdn.net/v/t1.0-9/64403759_2371311852961553_2978243143247331328_n.jpg?_nc_cat=111&_nc_ohc=zztHVZJQBNwAQnuJ3TrkdERfLJnTPPP5CSA7PmzPit5K6cgQtXTt8vgng&_nc_ht=scontent.fknu1-1.fna&oh=4f05859f48b7e6a73b5f914d6747ec4a&oe=5EB4770D',
     name: 'Arnav Agarwal',
     designation: 'Campus Coordinator',),
+];
+
+List<SportWidget> sportsList = [
+  SportWidget(image: 'images/badminton.jpeg',
+    name: 'Aquatics',
+  ),
+  SportWidget(image: 'images/badminton.jpeg',
+    name: 'Athletic Field Events',
+  ),
+  SportWidget(image: 'images/badminton.jpeg',
+    name: 'Athletic Track Events',
+  ),
+  SportWidget(image: 'images/badminton.jpeg',
+    name: 'Badminton',
+  ),
+  SportWidget(image: 'images/badminton.jpeg',
+    name: 'Basketball',
+  ),
+  SportWidget(image: 'images/badminton.jpeg',
+    name: 'Carrom',
+  ),SportWidget(image: 'images/badminton.jpeg',
+    name: 'Chess',
+  ),
+  SportWidget(image: 'images/badminton.jpeg',
+    name: 'Badminton',
+  ),
+  SportWidget(image: 'images/badminton.jpeg',
+    name: 'Badminton',
+  ),
+  SportWidget(image: 'images/badminton.jpeg',
+    name: 'Badminton',
+  ),
+  SportWidget(image: 'images/badminton.jpeg',
+    name: 'Badminton',
+  ),
+  SportWidget(image: 'images/badminton.jpeg',
+    name: 'Badminton',
+  ),
+  SportWidget(image: 'images/badminton.jpeg',
+    name: 'Badminton',
+  ),
+  SportWidget(image: 'images/badminton.jpeg',
+    name: 'Badminton',
+  ),
+
 ];
