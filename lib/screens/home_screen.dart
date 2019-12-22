@@ -1,5 +1,5 @@
-import 'package:asmita_flutter/components/events.dart';
-import 'package:asmita_flutter/components/team.dart';
+import 'package:asmita_flutter/screens/events.dart';
+import 'package:asmita_flutter/screens/team.dart';
 import 'package:flutter/material.dart';
 import 'package:asmita_flutter/constants.dart';
 
@@ -42,18 +42,21 @@ class _HomeScreenState extends State<HomeScreen> {
           child: _widgetOptions.elementAt(_selectedIndex),
         ),
         bottomNavigationBar: BottomNavigationBar(
+          iconSize: 30,
+          showSelectedLabels: false,
+          showUnselectedLabels: false,
           type: BottomNavigationBarType.fixed,
           items: <BottomNavigationBarItem>[
             BottomNavigationBarItem(
-              icon: Icon(Icons.home),
+              icon: Icon(Icons.list),
               title: Text('Events'),
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.business),
+              icon: Icon(Icons.add_alert),
               title: Text('Updates'),
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.school),
+              icon: Icon(Icons.wc),
               title: Text('Sponsers'),
             ),
             BottomNavigationBarItem(
@@ -62,17 +65,8 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ],
           currentIndex: _selectedIndex,
-          selectedItemColor: Colors.amber[800],
+          selectedItemColor: Colors.black,
           onTap: _onItemTapped,
-        ),
-        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-        floatingActionButton: FloatingActionButton(
-          onPressed: () {
-            //TODO: implement schedule functionality here by navigating to a new screen
-          },
-          tooltip: 'Open Schedule',
-          child: Text('Schedule',style: TextStyle(fontSize: 9,fontWeight: FontWeight.bold),),
-          elevation: 3.0,
         ),
       ),
     );

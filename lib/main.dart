@@ -10,10 +10,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Asmita\'20',
       theme: ThemeData(
-        primarySwatch: Colors.deepOrange,
-        fontFamily: 'Webster'
+        primaryColor: Colors.white,
+        fontFamily: 'NunitoSans'
       ),
-      initialRoute: WelcomeScreen.id,
+      initialRoute: HomeScreen.id,
       routes: {
         WelcomeScreen.id: (context) => WelcomeScreen(),
         HomeScreen.id: (context) => HomeScreen(),
