@@ -2,7 +2,7 @@ import 'package:asmita_flutter/screens/home_screen.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
-final _firestore = Firestore.instance;
+//final _firestore = Firestore.instance;
 
 class WelcomeScreen extends StatefulWidget {
   static String id = 'welcome_screen';

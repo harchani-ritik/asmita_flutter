@@ -25,6 +25,6 @@ flutter:
     - images/
 
   fonts:
-    - family: Webster
+    - family: NunitoSans
       fonts:
-        - asset: fonts/webster.ttf
+        - asset: fonts/nunitosans_black.ttf

@@ -10,18 +10,30 @@ class SportWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      elevation: 5,
-      child: Padding(
-        padding: EdgeInsets.all(8.0),
+    return Padding(
+      padding: EdgeInsets.all(8.0),
+      child: Container(
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(10.0),
+            image: DecorationImage(
+              image: AssetImage("images/$image"),
+              fit: BoxFit.cover,
+            ),),
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.end,
+          crossAxisAlignment: CrossAxisAlignment.end,
           children: <Widget>[
-            CircleAvatar(
-              radius: 60,
-              backgroundImage:AssetImage(image),
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 8),
+              child: Text(name,style: TextStyle(color: Colors.white),),
             ),
-            SizedBox(height: 20,),
-            Text(name),
+            Divider(
+              indent: 100,
+              endIndent: 8,
+              color: Colors.white,
+              height: 30,
+              thickness: 5,
+            ),
           ],
         ),
       ),
