@@ -1,42 +1,20 @@
+import 'package:asmita_flutter/components/column_template.dart';
 import 'package:asmita_flutter/components/sport_tile.dart';
-import 'package:asmita_flutter/components/title_card.dart';
 import 'package:asmita_flutter/constants.dart';
 import 'package:flutter/material.dart';
 
-class EventsViewWidget extends StatelessWidget {
+class EventsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: Container(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: <Widget>[
-            TitleCard(),
-            Expanded(
-              child: Container(
-                padding: EdgeInsets.symmetric(horizontal: 16,vertical: 8),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    Padding(
-                      padding: EdgeInsets.fromLTRB(8,0,0,0),
-                      child: Text(
-                        'Events.',
-                        style: TextStyle(fontSize: 40.0 ),
-                      ),
-                    ),
-                    Expanded(
-                      child: GridView.count(
-                        crossAxisCount: 2,
-                        scrollDirection: Axis.vertical,
-                        children: _getTiles(sportsList),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-          ],
+      child: ColumnTemplate(
+        columnTitle: 'Events',
+        childWidget: Expanded(
+          child: GridView.count(
+            crossAxisCount: 2,
+            scrollDirection: Axis.vertical,
+            children: _getTiles(sportsList),
+          ),
         ),
       ),
     );

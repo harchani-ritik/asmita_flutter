@@ -1,7 +1,8 @@
 import 'package:asmita_flutter/screens/events.dart';
+import 'package:asmita_flutter/screens/sponsers.dart';
 import 'package:asmita_flutter/screens/team.dart';
+import 'package:asmita_flutter/screens/updates.dart';
 import 'package:flutter/material.dart';
-import 'package:asmita_flutter/constants.dart';
 
 class HomeScreen extends StatefulWidget {
   static String id = 'home_screen';
@@ -15,16 +16,10 @@ class _HomeScreenState extends State<HomeScreen> {
   int _selectedIndex = 0;
 
   List<Widget> _widgetOptions = <Widget>[
-    EventsViewWidget(),
-    Text(
-      'Realtime Event Updates will be fetched here',
-      style: kOptionStyle.copyWith(fontSize: 15),
-    ),
-    Text(
-      'Sponsers List Coming Soon',
-      style: kOptionStyle,
-    ),
-    TeamPage(),
+    EventsScreen(),
+    UpdatesScreen(),
+    SponserScreen(),
+    TeamScreen(),
   ];
 
   void _onItemTapped(int index) {
