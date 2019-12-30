@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
+
 class TitleCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    double _screenHeight=MediaQuery.of(context).size.height;
+
     return Card(
       elevation: 6,
       child: Row(
@@ -15,7 +19,7 @@ class TitleCard extends StatelessWidget {
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 16,vertical: 16),
                 child: Image(
-                  height: 80,
+                  height: _screenHeight/672*80,
                   image: AssetImage('images/asmita_logo_cropped.png'),
                   fit: BoxFit.cover,
                 ),
@@ -31,7 +35,7 @@ class TitleCard extends StatelessWidget {
           ),
           Expanded(
             child: Image(
-              height: 140,
+              height: _screenHeight/672*140,
               image: AssetImage('images/soccer.jpg') ,
             ),
           ),

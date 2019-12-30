@@ -4,6 +4,8 @@ import 'package:asmita_flutter/screens/team.dart';
 import 'package:asmita_flutter/screens/updates.dart';
 import 'package:flutter/material.dart';
 
+
+
 class HomeScreen extends StatefulWidget {
   static String id = 'home_screen';
 
@@ -30,6 +32,8 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    print(MediaQuery.of(context).size.height);
+    print(MediaQuery.of(context).size.width);
     return WillPopScope(
       onWillPop: () async => false,
       child: Scaffold(
