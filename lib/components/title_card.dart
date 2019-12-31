@@ -28,7 +28,7 @@ class TitleCard extends StatelessWidget {
                 padding: EdgeInsets.fromLTRB(16, 8, 0, 8),
                 child: Text(
                   'The Annual Sports Meet\nof IIIT Allahabad',
-                  style: TextStyle(fontSize: 20 ,),
+                  style: TextStyle(fontSize: _screenHeight/672*20 ,),
                 ),
               ),
             ],

@@ -13,6 +13,7 @@ class MyApp extends StatelessWidget {
         primaryColor: Colors.white,
         fontFamily: 'NunitoSans'
       ),
+      home: HomeScreen(),
       initialRoute: HomeScreen.id,
       routes: {
         WelcomeScreen.id: (context) => WelcomeScreen(),
