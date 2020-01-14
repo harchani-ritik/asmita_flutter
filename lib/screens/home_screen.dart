@@ -4,8 +4,6 @@ import 'package:asmita_flutter/screens/team.dart';
 import 'package:asmita_flutter/screens/updates.dart';
 import 'package:flutter/material.dart';
 
-
-
 class HomeScreen extends StatefulWidget {
   static String id = 'home_screen';
 

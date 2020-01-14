@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 
-class TeamMemberTile extends StatelessWidget {
+class OrganiserTile extends StatelessWidget {
 
   final String imageUrl;
   final String name;
   final String designation;
+  final String phoneNumber;
 
-  TeamMemberTile({this.imageUrl,this.name,this.designation});
+  OrganiserTile({this.imageUrl,this.name,this.designation,this.phoneNumber});
 
   @override
   Widget build(BuildContext context) {
