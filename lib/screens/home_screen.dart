@@ -14,7 +14,6 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
 
   int _selectedIndex = 0;
-
   List<Widget> _widgetOptions = <Widget>[
     EventsScreen(),
     UpdatesScreen(),
@@ -30,8 +29,8 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    print(MediaQuery.of(context).size.height);
-    print(MediaQuery.of(context).size.width);
+//    print(MediaQuery.of(context).size.height);
+//    print(MediaQuery.of(context).size.width);
     return WillPopScope(
       onWillPop: () async => false,
       child: Scaffold(

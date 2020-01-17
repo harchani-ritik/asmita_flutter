@@ -59,12 +59,14 @@ class _OrganisersListState extends State<OrganisersList> {
   bool loadOrganisersList;
 
   List<OrganiserTile> organisersList = [];
+
   @override
   void initState() {
     // TODO: implement initState
     loadOrganisersList=true;
     fetchOrganisersData();
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

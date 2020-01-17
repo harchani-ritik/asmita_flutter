@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 
 class UpdateCard extends StatelessWidget {
+  final String date,event,message;
+
+  UpdateCard({this.date,this.event,this.message});
 
   @override
   Widget build(BuildContext context) {
@@ -14,12 +17,12 @@ class UpdateCard extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
-                Text('Related Event',style: TextStyle(fontSize: 20),),
-                Text('14th Feb 15:30 ',style: TextStyle(fontSize: 12))
+                Text(event,style: TextStyle(fontSize: 20),),
+                Text(date,style: TextStyle(fontSize: 12))
               ],
             ),
             Divider(height: 20,color: Colors.black,),
-            Text('Event is going to start in two minutes',style: TextStyle(fontSize: 15)),
+            Text(message,style: TextStyle(fontSize: 15)),
           ],
         ),
       ),
