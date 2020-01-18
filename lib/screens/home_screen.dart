@@ -2,10 +2,15 @@ import 'package:asmita_flutter/screens/events.dart';
 import 'package:asmita_flutter/screens/sponsers.dart';
 import 'package:asmita_flutter/screens/team.dart';
 import 'package:asmita_flutter/screens/updates.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
+
+
 
 class HomeScreen extends StatefulWidget {
   static String id = 'home_screen';
+
+
 
   @override
   _HomeScreenState createState() => _HomeScreenState();
@@ -14,6 +19,15 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
 
   int _selectedIndex = 0;
+  FirebaseMessaging firebaseMessaging ;
+
+  void fcmSubscribe() {
+    firebaseMessaging.subscribeToTopic('notifications');
+  }
+
+  void fcmUnSubscribe() {
+    firebaseMessaging.unsubscribeFromTopic('notifications');
+  }
   List<Widget> _widgetOptions = <Widget>[
     EventsScreen(),
     UpdatesScreen(),
@@ -29,8 +43,8 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-//    print(MediaQuery.of(context).size.height);
-//    print(MediaQuery.of(context).size.width);
+    print(MediaQuery.of(context).size.height);
+    print(MediaQuery.of(context).size.width);
     return WillPopScope(
       onWillPop: () async => false,
       child: Scaffold(
@@ -67,5 +81,12 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
     );
   }
+
+  @override
+  void initState() {
+    fcmSubscribe();
+  }
+
+
 }
 

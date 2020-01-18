@@ -23,10 +23,11 @@ class ColumnTemplate extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 Padding(
-                  padding: EdgeInsets.fromLTRB(8,0,0,0),
-                  child: TypewriterAnimatedTextKit(
-                    text:['$columnTitle'],
-                    textStyle: TextStyle(fontSize: 40.0 ),
+                  padding: EdgeInsets.fromLTRB(8,16,0,8),
+                  child: Text(
+                    '$columnTitle',
+                    style: TextStyle(fontSize: 45.0, fontFamily: 'Arial, Helvetica, sans-serif',
+                    fontWeight: FontWeight.bold),
                   ),
                 ),
                 childWidget,
