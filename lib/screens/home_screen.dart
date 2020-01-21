@@ -5,13 +5,8 @@ import 'package:asmita_flutter/screens/updates.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 
-
-
 class HomeScreen extends StatefulWidget {
   static String id = 'home_screen';
-
-
-
   @override
   _HomeScreenState createState() => _HomeScreenState();
 }
@@ -19,7 +14,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
 
   int _selectedIndex = 0;
-  FirebaseMessaging firebaseMessaging ;
+  FirebaseMessaging firebaseMessaging = FirebaseMessaging();
 
   void fcmSubscribe() {
     firebaseMessaging.subscribeToTopic('notifications');
@@ -84,7 +79,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   void initState() {
- //   fcmSubscribe();
+    fcmSubscribe();
   }
 
 
