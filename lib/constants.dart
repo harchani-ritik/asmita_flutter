@@ -18,6 +18,10 @@ List<OrganiserTile> developersList = [
     imageUrl: 'https://avatars0.githubusercontent.com/u/45289002?s=460&v=4',
     name: 'Shreyansh Sahu',
     designation: 'App Developer',),
+	OrganiserTile(
+		imageUrl: 'https://scontent.fdel11-1.fna.fbcdn.net/v/t1.0-9/s960x960/52548540_384959802061303_3487370434825945088_o.jpg?_nc_cat=101&_nc_ohc=6rDKM-sVUqwAQnYgBamb_qj8tYrN1MUC_6eQKIVRQB0TtEHy10elluhSg&_nc_ht=scontent.fdel11-1.fna&_nc_tp=1&oh=7864e5a810ebf738f33762ccdf1a9854&oe=5EAE692B',
+		name: 'Sunidhi Kashyap',
+		designation: 'App Design',),
 ];
 
 List<OrganiserTile> teamMembersList = [
@@ -76,7 +80,7 @@ List<OrganiserTile> teamMembersList = [
 		name: 'Ateeb Ali',
 		designation: 'Creatives',),
 	OrganiserTile(
-		imageUrl: '',
+		imageUrl: 'https://scontent.fdel11-1.fna.fbcdn.net/v/t1.0-9/p960x960/29187026_176241436353935_4217703553059258368_o.jpg?_nc_cat=111&_nc_ohc=W1ZPwAWO3-cAQlyy0p5QEKGPYufVflvrILbEWOoPAxHGD-xBbad0oiavQ&_nc_ht=scontent.fdel11-1.fna&_nc_tp=1&oh=77260ce3cc7347bfedc79ff336cc0a1e&oe=5E909FFE',
 		name: 'Ankit Kumar',
 		designation: 'Fliming',),
 	OrganiserTile(

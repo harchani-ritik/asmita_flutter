@@ -9,7 +9,7 @@ class SportWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.all(8.0),
+      padding: EdgeInsets.fromLTRB(12, 0, 12, 24),
       child: Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10.0),
@@ -17,7 +17,7 @@ class SportWidget extends StatelessWidget {
           image: DecorationImage(
             image: AssetImage("images/$image"),
             colorFilter: new ColorFilter.mode(
-                Colors.black.withOpacity(0.7), BlendMode.dstATop),
+                Colors.black.withOpacity(0.5), BlendMode.dstATop),
             fit: BoxFit.cover,
           ),
           gradient: LinearGradient(

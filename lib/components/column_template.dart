@@ -27,7 +27,7 @@ class ColumnTemplate extends StatelessWidget {
                   child: TypewriterAnimatedTextKit(
                     text:['$columnTitle'],
                     textStyle: TextStyle(fontSize: 40.0 ),
-                  ),
+                ),
                 ),
                 childWidget,
               ],

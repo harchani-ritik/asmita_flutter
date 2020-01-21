@@ -8,7 +8,7 @@ class TitleCard extends StatelessWidget {
     double _screenHeight=MediaQuery.of(context).size.height;
 
     return Card(
-      elevation: 6,
+      elevation: 4,
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -19,25 +19,27 @@ class TitleCard extends StatelessWidget {
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 16,vertical: 16),
                 child: Image(
-                  height: _screenHeight/672*80,
+                  height: _screenHeight/672*64,
                   image: AssetImage('images/asmita_logo_cropped.png'),
                   fit: BoxFit.cover,
                 ),
               ),
               Padding(
-                padding: EdgeInsets.fromLTRB(16, 8, 0, 8),
+                padding: EdgeInsets.fromLTRB(16, 0, 8, 16),
                 child: Text(
                   'The Annual Sports Meet\nof IIIT Allahabad',
-                  style: TextStyle(fontSize: _screenHeight/672*20 ,),
+                  style: TextStyle(fontSize: _screenHeight/672*18 ,),
                 ),
               ),
             ],
           ),
           Expanded(
-            child: Image(
-              height: _screenHeight/672*140,
-              image: AssetImage('images/soccer.jpg') ,
-            ),
+            child: Padding(
+              padding: EdgeInsets.fromLTRB(0, 16, 0, 0),
+              child: Image(
+              height: _screenHeight/672*108,
+              image: AssetImage('images/soccerr.jpg') ,
+            ),),
           ),
         ],
       ),
