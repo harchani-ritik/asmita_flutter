@@ -28,6 +28,7 @@ class ColumnTemplate extends StatelessWidget {
                     text:['$columnTitle'],
                     textStyle: TextStyle(fontSize: 40.0 ),
                 ),
+                ),
                 childWidget,
               ],
             ),
