@@ -16,24 +16,24 @@ class SportWidget extends StatelessWidget {
           color: const Color.fromRGBO(0, 0, 0, 1),
           image: DecorationImage(
             image: AssetImage("images/$image"),
-            colorFilter: new ColorFilter.mode(
-                Colors.black.withOpacity(0.5), BlendMode.dstATop),
+//            colorFilter: new ColorFilter.mode(
+//                Colors.black.withOpacity(0.5), BlendMode.dstATop),
             fit: BoxFit.cover,
           ),
-          gradient: LinearGradient(
-            // Where the linear gradient begins and ends
-            begin: Alignment.bottomCenter,
-            end: Alignment.topCenter,
-            // Add one stop for each color. Stops should increase from 0 to 1
-            stops: [0.3, 1],
-            colors: [
-              // Colors are easy thanks to Flutter's Colors class.
-
-              Colors.black,
-              Colors.black87,
-              //   Colors.black54
-            ],
-          ),
+//          gradient: LinearGradient(
+//            // Where the linear gradient begins and ends
+//            begin: Alignment.bottomCenter,
+//            end: Alignment.topCenter,
+//            // Add one stop for each color. Stops should increase from 0 to 1
+//            stops: [0.3, 1],
+//            colors: [
+//              // Colors are easy thanks to Flutter's Colors class.
+//
+//              Colors.black,
+//              Colors.black87,
+//              //   Colors.black54
+//            ],
+//          ),
         ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.end,

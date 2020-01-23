@@ -84,7 +84,8 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   void initState() {
- //   fcmSubscribe();
+    firebaseMessaging = new FirebaseMessaging();
+   fcmSubscribe();
   }
 
 

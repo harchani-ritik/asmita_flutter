@@ -17,16 +17,18 @@ exports.createUser = functions.firestore
       const newValue = snap.data();
 
       // access a particular field as you would any JS property
-      const name = newValue.name;
+      const event = newValue.event;
+      const message = newValue.message;
       //  sendMessage(name);
-        pushMessage(name);
+        pushMessage(event,message);
       // perform desired operations ...
 
     });
-function pushMessage(message) {
+function pushMessage(event,text) {
   var payload = {
     notification: {
-      title: message,
+      title: event,
+      body: text,
     }
   };
 
