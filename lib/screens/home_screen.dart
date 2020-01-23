@@ -38,8 +38,8 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    print(MediaQuery.of(context).size.height);
-    print(MediaQuery.of(context).size.width);
+//    print(MediaQuery.of(context).size.height);
+//    print(MediaQuery.of(context).size.width);
     return WillPopScope(
       onWillPop: () async => false,
       child: Scaffold(

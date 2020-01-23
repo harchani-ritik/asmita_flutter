@@ -4,6 +4,8 @@ import '../constants.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:modal_progress_hud/modal_progress_hud.dart';
 
+import 'pdf_viewer.dart';
+
 class EventDetails extends StatelessWidget {
 
   final int eventIndex;
@@ -34,7 +36,7 @@ class EventDetails extends StatelessWidget {
             ),),
           body: TabBarView(
             children: [
-              Text('Fixture pdf here'),
+              PdfShow(pdfUrl: "http://www.pdfpdf.com/samples/xlsdemo2.pdf",),
               Text('Result pdf here'),
               OrganisersList(eventName),
             ],
