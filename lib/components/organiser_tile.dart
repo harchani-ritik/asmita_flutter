@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class OrganiserTile extends StatelessWidget {
 
@@ -18,9 +19,11 @@ class OrganiserTile extends StatelessWidget {
       ),
       title: Text(name),
       subtitle: Text(designation),
-      trailing: Icon(
+      trailing: FlatButton(child:Icon(
           Icons.call
-      ),
+      ), onPressed: () {
+        launch("tel: $phoneNumber");
+      },),
     );
   }
 }
