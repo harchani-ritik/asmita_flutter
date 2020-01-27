@@ -9,7 +9,7 @@ class EventsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: ColumnTemplate(
-        columnTitle: 'Events.',
+        columnTitle: 'Events',
         childWidget: Expanded(
           child: GridView.count(
             crossAxisCount: 2,
