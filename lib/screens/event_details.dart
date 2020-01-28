@@ -3,7 +3,6 @@ import '../components/organiser_tile.dart';
 import '../constants.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:modal_progress_hud/modal_progress_hud.dart';
-
 import 'pdf_viewer.dart';
 
 class EventDetails extends StatelessWidget {

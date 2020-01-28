@@ -17,8 +17,8 @@ class UpdateCard extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
-                Text(event,style: TextStyle(fontSize: 20),),
-                Text(date,style: TextStyle(fontSize: 12))
+                Flexible(child: Text(event,style: TextStyle(fontSize: 20),)),
+                Flexible(child: Text(date,style: TextStyle(fontSize: 12)))
               ],
             ),
             Divider(height: 20,color: Colors.black,),

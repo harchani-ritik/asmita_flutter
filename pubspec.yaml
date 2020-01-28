@@ -21,6 +21,7 @@ dependencies:
   pdf_viewer_plugin: ^1.0.0+2
   path_provider: ^1.5.1
   http:
+  intl: ^0.15.8
 
 dev_dependencies:
   flutter_test:
