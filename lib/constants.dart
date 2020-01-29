@@ -90,7 +90,7 @@ List<OrganiserTile> teamMembersList = [
 	OrganiserTile(
 		imageUrl: 'https://scontent.fknu1-1.fna.fbcdn.net/v/t1.0-9/s960x960/61536061_1100125006856732_2973244909416349696_o.jpg?_nc_cat=105&_nc_ohc=jmjjr0rRwvMAQn4NNdVT3mbwqsPaeY3rb9EWTSeUHVLMpsUpQxclUM3Qw&_nc_ht=scontent.fknu1-1.fna&oh=cb17901ea2359cb96c84ed38c999e16b&oe=5E750027',
 		name: 'Shivansh Tiwari',
-		designation: 'HEAD, App Operations',),
+		designation: 'Head, App Operations',),
 ];
 
 List<SportWidget> sportsList = [

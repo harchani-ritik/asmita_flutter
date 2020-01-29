@@ -5,10 +5,7 @@ import 'package:asmita_flutter/screens/updates.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 
-
-
 class HomeScreen extends StatefulWidget {
-  static String id = 'home_screen';
   @override
   _HomeScreenState createState() => _HomeScreenState();
 }

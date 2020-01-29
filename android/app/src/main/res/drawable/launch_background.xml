@@ -3,10 +3,9 @@
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:drawable="@android:color/white" />
 
-    <!-- You can insert your own image assets here -->
-    <!-- <item>
-        <bitmap
-            android:gravity="center"
-            android:src="@mipmap/launch_image" />
-    </item> -->
+    <item
+        android:width="280dp"
+        android:height="350dp"
+        android:drawable="@drawable/splash_asmita"
+        android:gravity="center" />
 </layer-list>
