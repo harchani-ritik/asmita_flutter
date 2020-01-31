@@ -5,15 +5,42 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:modal_progress_hud/modal_progress_hud.dart';
 import 'pdf_viewer.dart';
 
-class EventDetails extends StatelessWidget {
+class EventDetails extends StatefulWidget {
 
   final int eventIndex;
-
   EventDetails(this.eventIndex);
 
   @override
+  _EventDetailsState createState() => _EventDetailsState();
+}
+
+class _EventDetailsState extends State<EventDetails> {
+
+  String fixtureUrl='';
+  String resultUrl='';
+  bool isUrlLoading;
+
+  Future<String> fetchPdfUrl() async{
+    final _firestore= Firestore.instance;
+    var sport = _firestore.collection('organisers').document(sportsList[widget.eventIndex].name);
+    var doc = await sport.get();
+    setState(() {
+      fixtureUrl= doc.data['fixture'];
+      resultUrl=doc.data['result'];
+      isUrlLoading=false;
+    });
+    return fixtureUrl;
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    isUrlLoading=true;
+    fetchPdfUrl();
+  }
+  @override
   Widget build(BuildContext context) {
-    String eventName=sportsList[eventIndex].name;
+    String eventName=sportsList[widget.eventIndex].name;
 
     return Container(
       height: MediaQuery.of(context).size.height*0.70,// Fixing Bottom Sheet to 70% of screen height
@@ -35,8 +62,8 @@ class EventDetails extends StatelessWidget {
             ),),
           body: TabBarView(
             children: [
-              PdfShow(pdfUrl: "http://www.pdfpdf.com/samples/xlsdemo2.pdf",),
-              Text('Result pdf here'),
+              isUrlLoading?Container():PdfShow(pdfUrl: fixtureUrl??defaultUrl,),
+              isUrlLoading?Container():PdfShow(pdfUrl: resultUrl??defaultUrl,),
               OrganisersList(eventName),
             ],
           ),
@@ -63,7 +90,7 @@ class _OrganisersListState extends State<OrganisersList> {
 
   @override
   void initState() {
-    // TODO: implement initState
+    super.initState();
     loadOrganisersList=true;
     fetchOrganisersData();
   }
@@ -90,7 +117,6 @@ class _OrganisersListState extends State<OrganisersList> {
     var sport = _firestore.collection('organisers').document(widget.eventName);
     var doc = await sport.get();
     int numberOfOrganisers = doc.data['numberOfOrganisers'];
-    print(numberOfOrganisers);
     for(int i=1;i<=numberOfOrganisers;i++)
     {
       var organisers = await sport.collection('organiser$i').getDocuments();

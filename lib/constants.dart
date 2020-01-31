@@ -137,3 +137,5 @@ List<SportWidget> sportsList = [
   ),
 
 ];
+
+const defaultUrl = 'https://firebasestorage.googleapis.com/v0/b/asmita-20.appspot.com/o/defaultPdf.pdf?alt=media&token=83b0489b-6468-4aea-bb6f-57c885869071';
