@@ -5,25 +5,6 @@ import 'components/organiser_tile.dart';
 
 TextStyle kOptionStyle = TextStyle(fontSize: 20, fontWeight: FontWeight.bold);
 
-List<OrganiserTile> developersList = [
-  OrganiserTile(
-    imageUrl: 'https://scontent.fknu1-1.fna.fbcdn.net/v/t1.0-9/s960x960/61536061_1100125006856732_2973244909416349696_o.jpg?_nc_cat=105&_nc_ohc=jmjjr0rRwvMAQn4NNdVT3mbwqsPaeY3rb9EWTSeUHVLMpsUpQxclUM3Qw&_nc_ht=scontent.fknu1-1.fna&oh=cb17901ea2359cb96c84ed38c999e16b&oe=5E750027',
-    name: 'Shivansh Tiwari',
-    designation: 'HEAD, App Operations',),
-  OrganiserTile(
-    imageUrl: 'https://avatars0.githubusercontent.com/u/46641571?s=460&v=4',
-    name: 'Ritik Harchani',
-    designation: 'App Developer',),
-  OrganiserTile(
-    imageUrl: 'https://avatars0.githubusercontent.com/u/45289002?s=460&v=4',
-    name: 'Shreyansh Sahu',
-    designation: 'App Developer',),
-	OrganiserTile(
-		imageUrl: 'https://scontent.fdel11-1.fna.fbcdn.net/v/t1.0-9/s960x960/52548540_384959802061303_3487370434825945088_o.jpg?_nc_cat=101&_nc_ohc=6rDKM-sVUqwAQnYgBamb_qj8tYrN1MUC_6eQKIVRQB0TtEHy10elluhSg&_nc_ht=scontent.fdel11-1.fna&_nc_tp=1&oh=7864e5a810ebf738f33762ccdf1a9854&oe=5EAE692B',
-		name: 'Sunidhi Kashyap',
-		designation: 'App Design',),
-];
-
 List<OrganiserTile> teamMembersList = [
   OrganiserTile(
     imageUrl: 'https://scontent.fknu1-1.fna.fbcdn.net/v/t1.0-9/s960x960/42664108_2190331037847801_6869201411381395456_o.jpg?_nc_cat=105&_nc_ohc=jBuSzWJ5VaQAQkMe5mbyQBLKScML7rMZiJXmxEtK4zccBpLFeBtnUw1UQ&_nc_ht=scontent.fknu1-1.fna&oh=a3938072a30c969e0ce8fdf90a15fe2f&oe=5EAAA309',
@@ -91,6 +72,18 @@ List<OrganiserTile> teamMembersList = [
 		imageUrl: 'https://scontent.fknu1-1.fna.fbcdn.net/v/t1.0-9/s960x960/61536061_1100125006856732_2973244909416349696_o.jpg?_nc_cat=105&_nc_ohc=jmjjr0rRwvMAQn4NNdVT3mbwqsPaeY3rb9EWTSeUHVLMpsUpQxclUM3Qw&_nc_ht=scontent.fknu1-1.fna&oh=cb17901ea2359cb96c84ed38c999e16b&oe=5E750027',
 		name: 'Shivansh Tiwari',
 		designation: 'Head, App Operations',),
+  OrganiserTile(
+    imageUrl: 'https://avatars0.githubusercontent.com/u/46641571?s=460&v=4',
+    name: 'Ritik Harchani',
+    designation: 'App Operations',),
+  OrganiserTile(
+    imageUrl: 'https://avatars0.githubusercontent.com/u/45289002?s=460&v=4',
+    name: 'Shreyansh Sahu',
+    designation: 'App Operations',),
+  OrganiserTile(
+    imageUrl: 'https://scontent.fdel11-1.fna.fbcdn.net/v/t1.0-9/s960x960/52548540_384959802061303_3487370434825945088_o.jpg?_nc_cat=101&_nc_ohc=6rDKM-sVUqwAQnYgBamb_qj8tYrN1MUC_6eQKIVRQB0TtEHy10elluhSg&_nc_ht=scontent.fdel11-1.fna&_nc_tp=1&oh=7864e5a810ebf738f33762ccdf1a9854&oe=5EAE692B',
+    name: 'Sunidhi Kashyap',
+    designation: 'App Design',),
 ];
 
 List<SportWidget> sportsList = [
