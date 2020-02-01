@@ -19,6 +19,7 @@ class _EventDetailsState extends State<EventDetails> {
   String fixtureUrl='';
   String resultUrl='';
   bool isUrlLoading;
+  int pageNumber=0;
 
   Future<String> fetchPdfUrl() async{
     final _firestore= Firestore.instance;
@@ -41,38 +42,86 @@ class _EventDetailsState extends State<EventDetails> {
   @override
   Widget build(BuildContext context) {
     String eventName=sportsList[widget.eventIndex].name;
-
-    return Container(
-      height: MediaQuery.of(context).size.height*0.70,// Fixing Bottom Sheet to 70% of screen height
-      width: double.infinity,
-      child: DefaultTabController(
-        length: 3,
+    final controller = PageController();
+    return SafeArea(
         child: Scaffold(
-          appBar: AppBar(
-            automaticallyImplyLeading: false,//removes back button from appBar
-            title: Center(child: Text(eventName)),
-            bottom: TabBar(
-              labelColor: Colors.black87,
-              unselectedLabelColor: Colors.grey,
-              tabs: [
-                Tab(text: "Fixtures"),
-                Tab(text: "Result"),
-                Tab(text: "Organisers"),
-              ],
-            ),),
-          body: TabBarView(
-            children: [
-              isUrlLoading?Container():PdfShow(pdfUrl: fixtureUrl??defaultUrl,),
-              isUrlLoading?Container():PdfShow(pdfUrl: resultUrl??defaultUrl,),
-              OrganisersList(eventName),
+          body: Column(
+            children: <Widget>[
+              Flexible(
+                flex: 2,
+                  child: Padding(
+                      padding: EdgeInsets.all(10),
+                      child: Text(eventName,style: TextStyle(fontSize: 28),))),
+              Flexible(
+                  flex: 1,
+                  child:Padding(
+                      padding:EdgeInsets.all(10),
+                      child: Text(pageNumber==0?'Fixtures':pageNumber==1?'Results':'Organisers', style: TextStyle(fontSize: 18),))),
+              Flexible(
+                flex: 6,
+                child: PageView(
+                  physics:NeverScrollableScrollPhysics(),
+                  controller: controller,
+                  children: <Widget>[
+                    isUrlLoading?Container():PdfShow(pdfUrl: fixtureUrl??defaultUrl,),
+                    isUrlLoading?Container():PdfShow(pdfUrl: resultUrl??defaultUrl,),
+                    OrganisersList(eventName),
+                  ],
+                ),
+              ),
+              Flexible(
+                flex: 2,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 0, vertical: 12),
+                      child: RaisedButton(
+                        elevation: 6,
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.only(topRight: Radius.circular(32),bottomRight: Radius.circular(32)),),
+                        color: Colors.white,
+                        child: Padding(
+                          padding: EdgeInsets.all(18.0),
+                          child: Icon(Icons.arrow_back,color: Colors.black,),
+                        ),
+                        onPressed: () {
+                          if(pageNumber==1||pageNumber==2)
+                            controller.animateToPage(--pageNumber, duration: Duration(milliseconds: 1500), curve: Curves.linear);
+                          setState(() {
+                          });
+                        },
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 0, vertical: 12),
+                      child: RaisedButton(
+                        elevation: 6,
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.only(topLeft: Radius.circular(32),bottomLeft: Radius.circular(32))),
+                        color: Colors.white,
+                        child: Padding(
+                          padding: EdgeInsets.all(18.0),
+                          child: Icon(Icons.arrow_forward,color: Colors.black,),
+                        ),
+                        onPressed: () {
+                          if(pageNumber==0||pageNumber==1)
+                            controller.animateToPage(++pageNumber, duration: Duration(milliseconds: 1500), curve: Curves.linear);
+                            //controller.jumpToPage(++pageNumber);
+                          setState(() {
+                          });
+                        },
+                      ),
+                    ),
+                  ],
+                ),
+              )
+
             ],
           ),
-        ),
-      ),
-    );
+        ));
   }
 }
-
 
 class OrganisersList extends StatefulWidget {
   final String eventName;

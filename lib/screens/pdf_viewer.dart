@@ -1,88 +1,113 @@
-import 'dart:async';
 import 'dart:io';
-import 'dart:typed_data';
+
 import 'package:flutter/material.dart';
-import 'package:pdf_viewer_plugin/pdf_viewer_plugin.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:flutter_pdfview/flutter_pdfview.dart';
 import 'package:http/http.dart' as http;
-import 'package:modal_progress_hud/modal_progress_hud.dart';
 
 class PdfShow extends StatefulWidget {
   final String pdfUrl;
   PdfShow({this.pdfUrl});
+
   @override
   _PdfShowState createState() => _PdfShowState();
 }
 
 class _PdfShowState extends State<PdfShow> {
-  String path;
-  bool isPdfLoading;
+  String urlPDFPath = "";
+  bool isUrlLoading=true;
+
+  Future<File> getFileFromUrl(String url) async {
+    try {
+      var data = await http.get(url);
+      var bytes = data.bodyBytes;
+      var dir = await getApplicationDocumentsDirectory();
+      File file = File("${dir.path}/mypdfonline.pdf");
+
+      File urlFile = await file.writeAsBytes(bytes);
+      return urlFile;
+    } catch (e) {
+      throw Exception("Error opening url file");
+    }
+  }
 
   @override
-  initState() {
+  void initState() {
     super.initState();
-    loadPdf();
-    isPdfLoading=true;
-  }
-
-  Future<String> get _localPath async {
-    final directory = await getApplicationDocumentsDirectory();
-    return directory.path;
-  }
-
-  Future<File> get _localFile async {
-    final path = await _localPath;
-    return File('$path/teste.pdf');
-  }
-
-  Future<File> writeCounter(Uint8List stream) async {
-    final file = await _localFile;
-
-    // Write the file
-    return file.writeAsBytes(stream);
-  }
-
-  Future<Uint8List> fetchPost() async {
-    final response = await http.get(
-        widget.pdfUrl);
-    final responseJson = response.bodyBytes;
-
-    return responseJson;
-  }
-
-  loadPdf() async {
-    writeCounter(await fetchPost());
-    path = (await _localFile).path;
-
-    if (!mounted) return;
-
-    setState(() {
-      isPdfLoading=false;
+    isUrlLoading = true;
+    getFileFromUrl(widget.pdfUrl).then((f) {
+      setState(() {
+        urlPDFPath = f.path;
+        print(urlPDFPath);
+        isUrlLoading=false;
+      });
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    return ModalProgressHUD(
-      inAsyncCall: isPdfLoading,
-      child: Scaffold(
-          body: Center(
-            child: SingleChildScrollView(
-              child: Column(
-                children: <Widget>[
-                  path != null?
-                      Container(
-                        height: 1000,
-                        child: PdfViewer(
-                          filePath: path,
-                        ),
-                      ):Container(),
-                  Text(isPdfLoading?'':'End'),
-                ],
-              ),
-            ),
-          ),
+    return Scaffold(
+      body: Container(
+        child: Center(child: isUrlLoading?CircularProgressIndicator():PdfViewPage(path: urlPDFPath,)),
       ),
     );
   }
 }
+
+
+
+class PdfViewPage extends StatefulWidget {
+  final String path;
+
+  const PdfViewPage({Key key, this.path}) : super(key: key);
+  @override
+  _PdfViewPageState createState() => _PdfViewPageState();
+}
+
+class _PdfViewPageState extends State<PdfViewPage> {
+  int _totalPages = 0;
+  int _currentPage = 0;
+  bool pdfReady = false;
+  PDFViewController _pdfViewController;
+
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Stack(
+        children: <Widget>[
+          PDFView(
+            filePath: widget.path,
+            autoSpacing: true,
+            enableSwipe: true,
+            pageSnap: true,
+            swipeHorizontal: true,
+            nightMode: false,
+            onError: (e) {
+              print(e);
+            },
+            onRender: (_pages) {
+              setState(() {
+                _totalPages = _pages;
+                pdfReady = true;
+              });
+            },
+            onViewCreated: (PDFViewController vc) {
+              _pdfViewController = vc;
+            },
+            onPageChanged: (int page, int total) {
+              setState(() {});
+            },
+            onPageError: (page, e) {},
+          ),
+          !pdfReady
+              ? Center(
+            child: CircularProgressIndicator(),
+          )
+              : Offstage()
+        ],
+      ),
+    );
+  }
+}
+

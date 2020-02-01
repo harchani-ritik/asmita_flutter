@@ -22,11 +22,7 @@ class EventsScreen extends StatelessWidget {
   }
   // Function to be called on click
   void _onTileClicked(int index,context) {
-    showModalBottomSheet(
-      isScrollControlled: true,
-      context: context,
-      builder: (context) => EventDetails(index),
-    );
+    Navigator.push(context,MaterialPageRoute(builder: (context)=>EventDetails(index)));
   }
 
 // Get grid tiles

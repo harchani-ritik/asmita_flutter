@@ -1,3 +1,4 @@
+import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:asmita_flutter/components/title_card.dart';
 import 'package:flutter/material.dart';
 
@@ -23,8 +24,11 @@ class ColumnTemplate extends StatelessWidget {
               children: <Widget>[
                 Padding(
                   padding: EdgeInsets.fromLTRB(8,0,0,0),
-                  child: Text('$columnTitle',
-                    style: TextStyle(fontSize: 40.0 ),),
+                  child: TypewriterAnimatedTextKit(
+                    isRepeatingAnimation: false,
+                    text:['$columnTitle'],
+                    textStyle: TextStyle(fontSize: 40.0 ),
+                  ),
                 ),
                 childWidget,
               ],
