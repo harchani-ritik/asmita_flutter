@@ -1,9 +1,6 @@
-import 'dart:io';
-
+import 'package:flutter_plugin_pdf_viewer/flutter_plugin_pdf_viewer.dart';
 import 'package:flutter/material.dart';
-import 'package:path_provider/path_provider.dart';
-import 'package:flutter_pdfview/flutter_pdfview.dart';
-import 'package:http/http.dart' as http;
+
 
 class PdfShow extends StatefulWidget {
   final String pdfUrl;
@@ -14,100 +11,32 @@ class PdfShow extends StatefulWidget {
 }
 
 class _PdfShowState extends State<PdfShow> {
-  String urlPDFPath = "";
-  bool isUrlLoading=true;
 
-  Future<File> getFileFromUrl(String url) async {
-    try {
-      var data = await http.get(url);
-      var bytes = data.bodyBytes;
-      var dir = await getApplicationDocumentsDirectory();
-      File file = File("${dir.path}/mypdfonline.pdf");
+  bool _isLoading=false;
+  PDFDocument document;
 
-      File urlFile = await file.writeAsBytes(bytes);
-      return urlFile;
-    } catch (e) {
-      throw Exception("Error opening url file");
-    }
+  void loadPdf() async
+  {
+    document = await PDFDocument.fromURL(widget.pdfUrl);
+    setState(() {
+      _isLoading=false;
+    });
   }
 
   @override
   void initState() {
     super.initState();
-    isUrlLoading = true;
-    getFileFromUrl(widget.pdfUrl).then((f) {
-      setState(() {
-        urlPDFPath = f.path;
-        print(urlPDFPath);
-        isUrlLoading=false;
-      });
-    });
+    _isLoading=true;
+    loadPdf();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        child: Center(child: isUrlLoading?CircularProgressIndicator():PdfViewPage(path: urlPDFPath,)),
-      ),
+      body: Center(
+          child: _isLoading
+              ? Center(child: CircularProgressIndicator())
+              : PDFViewer(document: document,showPicker: false)),
     );
   }
 }
-
-
-
-class PdfViewPage extends StatefulWidget {
-  final String path;
-
-  const PdfViewPage({Key key, this.path}) : super(key: key);
-  @override
-  _PdfViewPageState createState() => _PdfViewPageState();
-}
-
-class _PdfViewPageState extends State<PdfViewPage> {
-  int _totalPages = 0;
-  int _currentPage = 0;
-  bool pdfReady = false;
-  PDFViewController _pdfViewController;
-
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Stack(
-        children: <Widget>[
-          PDFView(
-            filePath: widget.path,
-            autoSpacing: true,
-            enableSwipe: true,
-            pageSnap: true,
-            swipeHorizontal: true,
-            nightMode: false,
-            onError: (e) {
-              print(e);
-            },
-            onRender: (_pages) {
-              setState(() {
-                _totalPages = _pages;
-                pdfReady = true;
-              });
-            },
-            onViewCreated: (PDFViewController vc) {
-              _pdfViewController = vc;
-            },
-            onPageChanged: (int page, int total) {
-              setState(() {});
-            },
-            onPageError: (page, e) {},
-          ),
-          !pdfReady
-              ? Center(
-            child: CircularProgressIndicator(),
-          )
-              : Offstage()
-        ],
-      ),
-    );
-  }
-}
-
