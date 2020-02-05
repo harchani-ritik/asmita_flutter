@@ -23,6 +23,7 @@ dependencies:
   http:
   flutter_pdfview:
   intl: ^0.15.8
+  flutter_plugin_pdf_viewer: ^1.0.7
 
 dev_dependencies:
   flutter_test:
