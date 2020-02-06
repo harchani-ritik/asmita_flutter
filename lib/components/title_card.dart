@@ -4,9 +4,7 @@ class TitleCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     double _screenHeight=MediaQuery.of(context).size.height;
-
     return Card(
       elevation: 4,
       child: Row(

@@ -51,14 +51,14 @@ class _EventDetailsState extends State<EventDetails> {
                 flex: 2,
                   child: Padding(
                       padding: EdgeInsets.all(10),
-                      child: Text(eventName,style: TextStyle(fontSize: 28),))),
+                      child: Text(eventName,style: TextStyle(fontSize: 30),))),
               Flexible(
                   flex: 1,
                   child:Padding(
                       padding:EdgeInsets.all(10),
-                      child: Text(pageNumber==0?'Fixtures':pageNumber==1?'Results':'Organisers', style: TextStyle(fontSize: 18),))),
+                      child: Text(pageNumber==0?'Fixtures':pageNumber==1?'Results':'Organisers', style: TextStyle(fontSize: 22),))),
               Flexible(
-                flex: 6,
+                flex: 8,
                 child: PageView(
                   physics:NeverScrollableScrollPhysics(),
                   controller: controller,
