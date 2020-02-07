@@ -4,8 +4,8 @@
     <item android:drawable="@android:color/white" />
 
     <item
-        android:width="280dp"
-        android:height="350dp"
-        android:drawable="@drawable/splash_asmita"
+        android:width="300dp"
+        android:height="300dp"
+        android:drawable="@drawable/asmita_new"
         android:gravity="center" />
 </layer-list>

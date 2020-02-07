@@ -36,11 +36,15 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   @override
+  void initState() {
+    firebaseMessaging = new FirebaseMessaging();
+    fcmSubscribe();
+  }
+
+  @override
   Widget build(BuildContext context) {
-//    print(MediaQuery.of(context).size.height);
-//    print(MediaQuery.of(context).size.width);
     return WillPopScope(
-      onWillPop: () async => false,
+      onWillPop: () async => true,
       child: Scaffold(
         body: Center(
           child: _widgetOptions.elementAt(_selectedIndex),
@@ -75,13 +79,5 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
     );
   }
-
-  @override
-  void initState() {
-    firebaseMessaging = new FirebaseMessaging();
-   fcmSubscribe();
-  }
-
-
 }
 
