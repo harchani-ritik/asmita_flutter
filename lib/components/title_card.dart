@@ -15,15 +15,15 @@ class TitleCard extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               Padding(
-                padding: EdgeInsets.symmetric(horizontal: 16,vertical: 0),
+                padding: EdgeInsets.fromLTRB(16, 8, 16, 8),
                 child: Image(
-                  height: _screenHeight/672*128,
+                  height: _screenHeight/672*96,
                   image: AssetImage('images/asmita_new.png'),
                   fit: BoxFit.cover,
                 ),
               ),
               Padding(
-                padding: EdgeInsets.fromLTRB(16, 0, 8, 8),
+                padding: EdgeInsets.fromLTRB(16, 0, 0, 8),
                 child: Text(
                   'The Annual Sports Meet\nof IIIT Allahabad',
                   style: TextStyle(fontSize: _screenHeight/672*18 ,),
@@ -33,7 +33,7 @@ class TitleCard extends StatelessWidget {
           ),
           Expanded(
             child: Padding(
-              padding: EdgeInsets.fromLTRB(0, 16, 0, 0),
+              padding: EdgeInsets.fromLTRB(0, 24, 0, 0),
               child: Image(
               height: _screenHeight/672*115,
               image: AssetImage('images/soccerr.jpg') ,
