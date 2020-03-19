@@ -1,16 +1,29 @@
-# asmita_flutter
+# Asmita'20
 
-A new Flutter application.
+## Official mobile application of Asmita - Annual sports fest of IIIT Allahabad.
 
-## Getting Started
+Stay updated during the event! No need to ask anyone for updates!
+Keep fixtures, results sponsors/team details just one tap away. 
 
-This project is a starting point for a Flutter application.
+[<img src="https://play.google.com/intl/en_us/badges/images/generic/en-play-badge.png" alt="Get it on Google Play" height=
+"80">](https://play.google.com/store/apps/details?id=swati4star.createpdf)
 
-A few resources to get you started if this is your first Flutter project:
+### Key features of the app includes:
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+- Keeps you up to date with ongoing events.
+- You can check fixtures and results of any event right in your hand.
+- Notifies you about highlights/reschedulings.
+- You can contact organiser or team member through the app in case of queries.
+- You can also get details of the sponsers of the event.
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Here are some screenshots of app made in flutter.
+
+ ![Events](screenshot1.png) ![Updates](screenshot6.png)
+ ![Team](screenshot2.png) ![Event Details](screenshot4.png)
+ ![Event Organisers](screenshot3.png) ![Sponsers](screenshot5.png)
+
+### Authors
+- [Ritik Harchani](https://github.com/harchani-ritik)
+- [Shreyansh Sahu](https://github.com/23nobody)
+
+Designs of the mobile app made by [Sunidhi Kahsyap](https://www.behance.net/iit2018016065e)
