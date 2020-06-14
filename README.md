@@ -6,7 +6,7 @@ Stay updated during the event! No need to ask anyone for updates!
 Keep fixtures, results sponsors/team details just one tap away. 
 
 [<img src="https://play.google.com/intl/en_us/badges/images/generic/en-play-badge.png" alt="Get it on Google Play" height=
-"80">](https://play.google.com/store/apps/details?id=swati4star.createpdf)
+"80">](https://play.google.com/store/apps/details?id=com.harchani.asmita_flutter)
 
 ### Key features of the app includes:
 
