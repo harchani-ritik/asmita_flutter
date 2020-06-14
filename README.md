@@ -18,9 +18,12 @@ Keep fixtures, results sponsors/team details just one tap away.
 
 Here are some screenshots of app made in flutter.
 
- ![Events](screenshot1.png) ![Updates](screenshot6.png)
- ![Team](screenshot2.png) ![Event Details](screenshot4.png)
- ![Event Organisers](screenshot3.png) ![Sponsers](screenshot5.png)
+ ![Events](screenshot1.png) 
+ ![Updates](screenshot6.png)
+ ![Team](screenshot2.png) 
+ ![Event Details](screenshot4.png)
+ ![Event Organisers](screenshot3.png) 
+ ![Sponsers](screenshot5.png)
 
 ### Authors
 - [Ritik Harchani](https://github.com/harchani-ritik)
